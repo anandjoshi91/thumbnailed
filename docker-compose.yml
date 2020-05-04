@@ -1,0 +1,34 @@
+version: '3'
+services:
+  redis:
+    image: redis:4.0.6-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis:/data
+  api:
+    image: thumbnailed:latest
+    command: uvicorn api:app --host 0.0.0.0 --port 5057
+    ports:
+      - "5057:5057"
+    depends_on:
+      - redis
+    links:
+      - redis
+  worker:
+    image: thumbnailed:latest
+    command: rq worker --url redis://redis:6379 thumbrequests
+    depends_on:
+      - redis
+    links:
+      - redis
+
+  # dashboard:
+  #   build: ./project/dashboard
+  #   image: dashboard
+  #   container_name: dashboard
+  #   ports:
+  #     - 9181:9181
+  #   command: rq-dashboard -H redis
+  #   depends_on:
+  #     - redis
