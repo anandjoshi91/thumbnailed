@@ -1,6 +1,6 @@
 # Thumbnailed
 
-[This file uses mermaidjs which might not be rendered on kramdown. I have created pdf version of this file which shows the diagrams too. Please check index.pdf in this same folder.]
+[This file uses mermaidjs which might not be rendered on kramdown. I have created pdf version of this file which shows the diagrams too. Please check index.html in this same folder.]
 
 ## Technologies used
 

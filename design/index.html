@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="thumbnailed">Thumbnailed</h1>
+<h2 id="technologies-used">Technologies used</h2>
+<ol>
+<li>Python 3.6
+<ul>
+<li>Web framework : <a href="https://fastapi.tiangolo.com/">Fast Api</a></li>
+<li>Server : <a href="https://www.uvicorn.org/">Uvicorn - ASGI server</a></li>
+<li>Queue Processing : <a href="https://python-rq.org/">Python rq</a></li>
+<li>Testing : <a href="https://docs.pytest.org/en/latest/">Pytest</a></li>
+</ul>
+</li>
+<li>Redis 4
+<ul>
+<li>Using redis queues for job processing</li>
+</ul>
+</li>
+<li>Docker
+<ul>
+<li>Containerization and deployment</li>
+</ul>
+</li>
+</ol>
+<h2 id="design">Design</h2>
+<h3 id="architecture">Architecture</h3>
+<p>Image processing is CPU intensive and possibly a time consuming process. Hence, it is better to run such processing asynchronously in the background. I have used <code>redis</code> as a message queue. The reason for using redis is that, it is extremely fast, easy to set up and can be used in a distributed environment easily. It can be fine tuned to provide high availability or high consistency.</p>
+<p>I have used python rq library, which creates a separate worker process that executes jobs from the queues. We can spawn as many workers as needed. There are wrapper <a href="http://supervisord.org/">libraries</a> for managing multiple workers. Hence we can easily scale our application by creating more workers.</p>
+<p>Since a long running job could take time to process there are two ways in which client can get the result</p>
+<ol>
+<li>Pull - The client will poll and <code>pull</code> the results from the app. I have provided an api to check status of the process, the job returns the image if the process is completed.</li>
+</ol>
+<pre><code class="language-mermaid"><div class="mermaid">sequenceDiagram
+    participant client
+    participant webapp
+    participant worker
+    participant redis
+    client->>webapp: Generate thumbnail
+    webapp->>worker: process this image
+    webapp->>client: request_id
+    client-->>webapp: continue other tasks
+    worker->>redis: save results [req_id]
+    webapp-->>client: ...
+    client->>webapp: Get thumbnail [req_id]
+    webapp->>redis: Is it done [req_id]?
+    redis->>webapp: yep, here is the result
+    webapp->>client: here is your thumbnail   
+</div></code></pre>
+<ol start="2">
+<li>Push - The application will <code>push</code> result to the client. The client can pass his/her email and the application will email them the generated thumbnail.</li>
+</ol>
+<p>The first mechanism of polling might not be that good and hence I would prefer the second approach of <code>Push</code> in the actual application. The client could also provide a callback url where we can <code>POST</code> the results.</p>
+<pre><code class="language-mermaid"><div class="mermaid">sequenceDiagram
+    participant client
+    participant webapp
+    participant worker
+    client->>webapp: Generate thumbnail [email_id]
+    webapp->>worker: process this image
+    client-->>webapp: continue other tasks
+    webapp-->>client: ...
+    worker-->>client: Thumbnail emailed
+</div></code></pre>
+<h2 id="future-improvements">Future improvements</h2>
+<h3 id="queue-processing">Queue processing</h3>
+<p>It is possible that a worker thread could die or throw error. Python rq provides ways to check failed processes, also it provides options to try on failure.</p>
+<h3 id="scaling">Scaling</h3>
+<ol>
+<li>
+<p>Vertical Scaling: In this demo app, I have created a single worker process. We can create multiple worker processes to make processing faster. Example this <a href="http://supervisord.org/">library</a> can be used.</p>
+</li>
+<li>
+<p>Horizontal Scaling: Multiple instances of the app can be deployed [with a LB to evenly distribute the load] as far as they all connect to same redis instance. To ensure redis is also highly available we can create a cluster with master slave replication.</p>
+</li>
+</ol>
+<h3 id="monitoring">Monitoring</h3>
+<ol>
+<li>Jobs - Python rq provides a nice monitoring <a href="https://python-rq.org/docs/monitoring/">dashboard</a> the jobs.</li>
+<li>Redis - redis sentinels can be configured to alert us when some issues happen on the redis cluster.</li>
+<li>Web-app - Splunk/Appdynamics/ or other cloud tools if deployed to cloud</li>
+</ol>
+<h3 id="testing">Testing</h3>
+<p>Currently I have written some basic unit tests. We can additionally test the rest api with Soap UI or my personal favorite web api testing framework - <a href="https://github.com/intuit/karate">karate</a></p>
+<h3 id="security">Security</h3>
+<ol>
+<li>Need to handle limit to image size upload.</li>
+<li>Correctly check file mimetype to prevent harmful files from getting uploaded to server.</li>
+<li>Currently there is no authentication, depending on the use case we could add auth layer to this service.</li>
+<li>Prevent DOS/DDoS attack.</li>
+</ol>
+<h3 id="api">API</h3>
+<p>Currently we accept image url to generate thumbnails, we could allow users to upload the image. For file storage we can use S3 or Google cloud storage if we deploy this to cloud. Also provide an api for the client to get a callback.</p>
+
+</body>
+</html>
