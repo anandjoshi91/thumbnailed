@@ -25,9 +25,8 @@ def test_invalid_image_process():
 
 def test_health_check_api():
     """
-    Test 
+    Test health checkup api
     """
     response = client.get("/api/health")
     assert response.status_code == 200
     assert response.json() == {'status': 'OK', 'message': 'Server is up !'}
-

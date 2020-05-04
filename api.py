@@ -28,7 +28,7 @@ def health():
 
 
 @app.post('/api/thumb', status_code=201)
-def generateThumbnail(thumbreq: ThumbReq):
+def generate_thumbnail(thumbreq: ThumbReq):
     """
     Adds thumbnail generation request to redis queue
 
@@ -43,8 +43,8 @@ def generateThumbnail(thumbreq: ThumbReq):
 
 
 
-@app.get('/api/thumb/{reqid}', status_code=200)
-def getThumbnail(reqid : str):
+@app.get('/api/thumb/{req_id}', status_code=200)
+def get_thumbnail(req_id : str):
     """
     Returns thumbnail in base64 encoding
 
@@ -54,5 +54,5 @@ def getThumbnail(reqid : str):
     Returns:
         (str): Base 64 encoded thumbnail image or null if the job is still pending
     """
-    job = q.fetch_job(reqid)
+    job = q.fetch_job(req_id)
     return {'image_base64' : job.result}
