@@ -21,18 +21,14 @@ def processImage(email_id, img_url):
     Returns:
         (str): Base 64 encoded image
     """
-    result = None
-    try:
-        response = requests.get(img_url)
-        img = Image.open(BytesIO(response.content))
-        fmt = img.format
-        img = square_thumb(img, cfg.thumb["size"])
-        buffer = BytesIO()
-        img.save(buffer, format=fmt)
-        thumb = buffer.getvalue()
-        result = "data:image/jpeg;base64,"+str(base64.b64encode(thumb), "utf-8")
-    except Exception:
-        print("Exception occurred while processing image")
+    response = requests.get(img_url)
+    img = Image.open(BytesIO(response.content))
+    fmt = img.format
+    img = square_thumb(img, cfg.thumb["size"])
+    buffer = BytesIO()
+    img.save(buffer, format=fmt)
+    thumb = buffer.getvalue()
+    result = "data:image/jpeg;base64,"+str(base64.b64encode(thumb), "utf-8")  
     return result
 
 

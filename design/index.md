@@ -16,6 +16,13 @@
 
 ## Design
 
+### Components
+
+1. `$ROOT/api.py` : This exposes all the end points.
+2. `$ROOT/app/worker.py` : This defines background worker tasks.
+3. `$ROOT/app/config.py` : App configuration
+4. `$ROOT/app/test_app.py` : Unit tests
+
 ### Architecture
 
 Image processing is CPU intensive and possibly a time consuming process. Hence, it is better to run such processing asynchronously in the background. I have used `redis` as a message queue. The reason for using redis is that, it is extremely fast, easy to set up and can be used in a distributed environment easily. It can be fine tuned to provide high availability or high consistency.
@@ -99,6 +106,11 @@ Currently we accept image url to generate thumbnails, we could allow users to up
 ### Image processing
 
 We can use smart cropping to crop faces or important features of a large image. There are many computer vision tools available to do that.
+
+### General
+
+Since this is just a demo app, logging, exception handling and in general app structure 
+might not be perfect and can be improved.
 
 
 

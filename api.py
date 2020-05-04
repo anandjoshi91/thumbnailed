@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from redis import Redis
 from rq import Queue
+from rq.job import Job
 import app.config as cfg
 
 from app.worker import processImage
@@ -58,4 +59,4 @@ def get_thumbnail(req_id : str):
     if(job == None):
         raise HTTPException(status_code=404, detail="Thumb request not found")
     
-    return {'image_base64' : job.result}
+    return {'status' : job.get_status(),'image_base64' : job.result}

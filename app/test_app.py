@@ -1,6 +1,8 @@
 from .worker import processImage
 from fastapi.testclient import TestClient
 from api import app
+import pytest
+import requests
 
 client = TestClient(app)
 
@@ -18,9 +20,10 @@ def test_invalid_image_process():
     """
     Test image processing with an invalid image
     """
-    result = processImage('test@test.com',
-                          'dummy.jpg')
-    assert (result == None), 'Should be an error in processing'
+    with pytest.raises(requests.exceptions.ConnectionError) as err:
+        result = processImage('test@test.com',
+                            'http://dummy.jpg')
+        assert (result == None), 'Expected error'
 
 
 def test_health_check_api():

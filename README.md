@@ -48,14 +48,15 @@ RESPONSE -
 a. If request in invalid
 
 {"detail": "Thumb request not found"}
+{"status": "failed","image_base64": null}
 
 b. If processing is still pending
 
-{"image_base64": null}
+{"status": "queued/started", "image_base64": null}
 
 c. If the job finished processing
 
-{"image_base64":"data:image/jpeg;base64,/9j/4AAQSkZJRg......"}
+{"status": "finished", "image_base64":"data:image/jpeg;base64,/9j/4AAQSkZJRg......"}
 
 ```
 
