@@ -3,7 +3,7 @@
 ## Starting application
 
 ```
-git clone https://github.com/anandjoshi91/thumbnailed
+git clone https://github.com/anandjoshi91/thumbnailed.git
 cd thumbnailed
 docker build -t thumbnailed:latest .
 docker-compose -f docker-compose.yml up
@@ -69,4 +69,4 @@ pytest
 
 ## Architecture
 
-Check documents inside `./design` folder.
+Check  `./design/index.html`.

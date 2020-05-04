@@ -1,6 +1,6 @@
 # Thumbnailed
 
-[This file uses mermaidjs which might not be rendered on kramdown. I have created pdf version of this file which shows the diagrams too. Please check index.html in this same folder.]
+[This file uses mermaidjs which might not be rendered on kramdown. I have created html version of this file which shows the diagrams too. Please check index.html in this same folder.]
 
 ## Technologies used
 
@@ -95,6 +95,10 @@ Currently I have written some basic unit tests. We can additionally test the res
 ### API
 
 Currently we accept image url to generate thumbnails, we could allow users to upload the image. For file storage we can use S3 or Google cloud storage if we deploy this to cloud. Also provide an api for the client to get a callback.
+
+### Image processing
+
+We can use smart cropping to crop faces or important features of a large image. There are many computer vision tools available to do that.
 
 
 
