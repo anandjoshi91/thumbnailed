@@ -8,9 +8,9 @@ services:
       - ./redis:/data
   api:
     image: thumbnailed:latest
-    command: uvicorn api:app --host 0.0.0.0 --port 5057
+    command: uvicorn api:app --host 0.0.0.0 --port 8080
     ports:
-      - "5057:5057"
+      - "8080:8080"
     depends_on:
       - redis
     links:

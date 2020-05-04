@@ -28,4 +28,4 @@ COPY api.py ./
 RUN chown -R appuser:appuser ./
 
 USER appuser
-CMD uvicorn api:app --host 0.0.0.0 --port 5057
+CMD uvicorn api:app --host 0.0.0.0 --port 8080
