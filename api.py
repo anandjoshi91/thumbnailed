@@ -55,4 +55,7 @@ def get_thumbnail(req_id : str):
         (str): Base 64 encoded thumbnail image or null if the job is still pending
     """
     job = q.fetch_job(req_id)
+    if(job == None):
+        raise HTTPException(status_code=404, detail="Thumb request not found")
+    
     return {'image_base64' : job.result}
