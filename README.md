@@ -6,7 +6,7 @@
 git clone https://github.com/anandjoshi91/thumbnailed.git
 cd thumbnailed
 docker build -t thumbnailed:latest .
-docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml up --scale worker=3
 ```
 
 ## API end points
