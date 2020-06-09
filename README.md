@@ -1,5 +1,7 @@
 # Thumbnailed
 
+Long running job architecture for generating thumbnails using python-rq.
+
 ## Starting application
 
 ```
