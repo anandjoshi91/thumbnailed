@@ -60,6 +60,12 @@ c. If the job finished processing
 
 ```
 
+## Monitoring (Dashboard)
+
+```
+Check status of the jobs http://localhost:9181/
+```
+
 ## Testing application
 
 ```

@@ -23,12 +23,13 @@ services:
     links:
       - redis
 
-  # dashboard:
-  #   build: ./project/dashboard
-  #   image: dashboard
-  #   container_name: dashboard
-  #   ports:
-  #     - 9181:9181
-  #   command: rq-dashboard -H redis
-  #   depends_on:
-  #     - redis
+  dashboard:
+    image: eoranged/rq-dashboard
+    ports:
+      - 9181:9181
+    environment:
+      - RQ_DASHBOARD_REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    links:
+      - redis
